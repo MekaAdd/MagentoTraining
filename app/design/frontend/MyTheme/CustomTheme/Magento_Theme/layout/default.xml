@@ -1,0 +1,28 @@
+<?xml version="1.0" ?> 
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="js/custom-theme.js"/>
+    </head>
+    <body>
+        <referenceContainer name="header.panel">
+            <block class="Magento\Framework\View\Element\Template" name="customtheme.header" template="Magento_Theme::header.phtml" />
+            <referenceBlock name="register-link" remove="true"></referenceBlock>
+            <referenceBlock name="header" remove="true"></referenceBlock>
+        </referenceContainer>
+        <referenceContainer name="footer">
+            <referenceContainer name="footer_links" remove="true"></referenceContainer>
+            <!-- <container name="footer.links.container" htmlTag="div" htmlClass="footer-link-container">
+                <block class="Magento\Framework\View\Element\Template" template="Magento_Theme::footer-links.phtml"></block>
+                <container name="footer.form.subscribe" htmlTag="div" htmlClass="footer-link-col">
+                    <block class="Magento\Framework\View\Element\Template" template="Magento_Theme::footer-subscribe-description.phtml"></block>
+                </container>
+            </container>
+            <container name="footer.lower">
+                <block class="Magento\Framework\View\Element\Template" template="Magento_Theme::footer-lower.phtml"></block>
+            </container> -->
+        </referenceContainer>
+        <!-- <move element="form.subscribe" destination="footer.form.subscribe" after="-"/> -->
+        <referenceBlock name="page.main.title" remove="true"></referenceBlock>
+        <referenceBlock name="copyright" remove="true"></referenceBlock>
+    </body>
+</page>
