@@ -6,6 +6,7 @@ use \Magento\Framework\View\Element\Template\Context;
 use MyModule\HelloWorld\Model\ResourceModel\Post\Collection;
 use MyModule\HelloWorld\Model\ResourceModel\Post\CollectionFactory;
 
+
 class Index extends Template
 {
     private $collectionFactory;
@@ -15,6 +16,7 @@ class Index extends Template
 		parent::__construct($context);
 	}
 
+    
 	public function sayHello(): string
 	{
 		return __('Hello World');

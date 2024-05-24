@@ -1,0 +1,12 @@
+<?php 
+/**
+ * @var \AHT\Blog\Block\Blog\Index $block
+ */ 
+?>
+
+<div class="blog-category-container">
+    <div class="blog-category" data-id=""><p>All</p></div>
+    <?php foreach($block->getCategoryList() as $key => $value): ?>
+        <div class="blog-category" data-id="<?=$value['category_id']?>"><p><?=$value['name']?></p></div>    
+    <?php endforeach ?>
+</div>

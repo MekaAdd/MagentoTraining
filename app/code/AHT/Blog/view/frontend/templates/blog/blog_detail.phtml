@@ -1,0 +1,15 @@
+<?php 
+/**
+ * @var \AHT\Blog\Block\Blog\Detail $block
+ */ 
+    $blog = $block->getBlog();
+?>
+<div class="blog">
+    <img src="<?=$blog['thumbnail']?>" height="500" width="500" />
+    <div style="display: inline-block;">
+        <h1><?=$blog['title']?></h1>
+        <p><?=$blog['username']?></p>
+        <h3><?=$blog['description']?></h3>
+        <p><?=$blog['content']?></p>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="AHT_Blog::js/blog_index.js"/>
+    </head>
+    <referenceContainer name="content">
+        <block class="AHT\Blog\Block\Blog\Index" template="AHT_Blog::blog/blog_list.phtml" />
+    </referenceContainer>
+    <referenceContainer name="sidebar.additional">
+        <block class="AHT\Blog\Block\Blog\Index" template="AHT_Blog::blog/category_list.phtml" />
+    </referenceContainer>
+    
+    <referenceContainer name="sidebar.additional">
+        <referenceBlock name="wishlist_sidebar" remove="true">
+            
+        </referenceBlock>
+        <referenceBlock name="catalog.compare.sidebar" remove="true">
+            
+        </referenceBlock>
+    </referenceContainer>
+</page>

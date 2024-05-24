@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="aht_blog_blog" resource="default" engine="innodb" comment="aht_blog_blog Table">
+		<column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="blog_id"/>
+		</constraint>
+		<column name="title" nullable="false" xsi:type="text" comment="title"/>
+        <column xsi:type="int" name="author" padding="10" unsigned="true" nullable="false" identity="false" comment="Author ID"/>
+        <constraint xsi:type="foreign" referenceId="FL_AUTHOR_USERID" table="aht_blog_blog" column="author" referenceTable="admin_user" referenceColumn="user_id" onDelete="CASCADE"/>
+		<column name="status" nullable="false" xsi:type="boolean" comment="status" default="0"/>
+		<column name="tag" nullable="true" xsi:type="text" comment="tag"/>
+		<column name="thumbnail" nullable="true" xsi:type="text" comment="thumbnail"/>
+		<column name="description" nullable="true" xsi:type="text" comment="description"/>
+		<column name="content" nullable="true" xsi:type="text" comment="content"/>
+        <column name="publish_date" nullable="true" xsi:type="date" comment="publish_date"/>
+	</table>
+	<table name="aht_blog_category" resource="default" engine="innodb" comment="aht_blog_category Table">
+		<column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="category_id"/>
+		</constraint>
+		<column name="name" nullable="false" xsi:type="text" comment="name"/>
+		<column xsi:type="int" name="parent_id" padding="10" unsigned="true" nullable="true" identity="false" comment="Parent Id"/>
+        <constraint xsi:type="foreign" referenceId="FL_CATEGORY_PARENT" table="aht_blog_category" 
+            column="parent_id" referenceTable="aht_blog_category" referenceColumn="category_id" onDelete="CASCADE"/>
+	</table>
+	<table name="aht_blog_categoryblog" resource="default" engine="innodb" comment="aht_blog_categoryblog Table">
+		<column xsi:type="int" name="categoryblog_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="categoryblog_id"/>
+		</constraint>
+		<column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Entity Id"/>
+        <constraint xsi:type="foreign" referenceId="FL_CATEGORY_MANY" table="aht_blog_categoryblog" 
+            column="category_id" referenceTable="aht_blog_category" referenceColumn="category_id" onDelete="CASCADE"/>
+		<column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Entity Id"/>
+        <constraint xsi:type="foreign" referenceId="FL_BLOG_MANY" table="aht_blog_categoryblog" 
+            column="blog_id" referenceTable="aht_blog_blog" referenceColumn="blog_id" onDelete="CASCADE"/>
+	</table>
+</schema>
